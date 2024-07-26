@@ -1,0 +1,49 @@
+<%- include('../layouts/header.ejs') -%>
+
+<div style="text-align: center;">
+    <h2 style="color: #333;">Add New User</h2>
+
+    
+
+    <form action="/admin/new-user" method="post" enctype="form-data" style="margin: 0 auto; width: 300px;">
+
+        <% if (typeof error !== 'undefined' && error.length > 0) { %>
+            <% error.forEach(function(err) { %>
+            <div class="alert alert-warning alert-dismissible fade show fs-6" role="alert">
+              
+                <%= err %>
+              
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <% }); %>
+          <% } %>
+        
+        <% if (typeof emailExistError !== 'undefined' && emailExistError.length > 0) { %>
+   
+            <div class="alert alert-warning alert-dismissible fade show fs-6" role="alert">     
+                <%= emailExistError %>      
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            
+          <% } %>
+        <input type="text" name="name" placeholder="Enter Name" required style="width: 100%; padding: 8px; margin-bottom: 10px;">
+        <br><br>
+        
+        <input type="email" name="email" placeholder="Enter email" required style="width: 100%; padding: 8px; margin-bottom: 10px;">
+        <br><br>
+
+        <input type="password" name="password" placeholder="Enter password" required style="width: 100%; padding: 8px; margin-bottom: 10px;">
+        <br><br>
+
+        <input type="submit" value="Add User" style="background-color: #335981; color: #fff; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">
+        <br><br>
+    </form>
+
+    <% if(typeof message !== 'undefined') { %>
+        <h1 style="color: #3d2828;"><%= message %></h1>
+    <% } %>
+
+    <a href="/admin/dashboard" style="text-decoration: none; color: #182c41;">Go Back</a>
+</div>
+
+<%- include('../layouts/footer.ejs') -%>

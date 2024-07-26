@@ -1,0 +1,68 @@
+<%- include('../layouts/header.ejs') -%>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #4c2641;
+        color: #050404;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        text-align: center;
+        margin-top: 50px;
+        margin-left: auto; /* Center the container horizontally */
+        margin-right: auto; /* Center the container horizontally */
+        width: 50%; /* Adjust the width as needed */
+    }
+
+    h2 {
+        font-family: Arial, sans-serif;
+        color: #fff;
+    }
+
+    table {
+        width: 100%; /* Make table width 100% */
+        margin: 0 auto; /* Center the table horizontally */
+        border-collapse: collapse;
+        color: #070707;
+        background-color: #ccc;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+
+    a {
+        display: block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    a:hover {
+        color: #ccc;
+    }
+    
+</style>
+<div class="container">
+    <h2>Welcome, <%= user.name %></h2>
+    <table>
+       <tr>
+            <td>name</td>
+            <td><%= user.name %></td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td><%= user.email %></td>
+        </tr>
+    </table>
+    <form action="/logout" method="post">
+      <button type="submit">Logout</button> 
+    </form>
+</div>
+<%- include('../layouts/footer.ejs') -%>
